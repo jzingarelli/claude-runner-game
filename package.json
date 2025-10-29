@@ -1,0 +1,19 @@
+{
+  "name": "enterprise-social-analytics",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "build": "npm run -w backend build && npm run -w frontend build",
+    "dev": "npm run -w backend dev & npm run -w frontend dev",
+    "test": "npm run -w backend test && npm run -w frontend test",
+    "lint": "eslint . --ext .ts,.tsx,.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
+}

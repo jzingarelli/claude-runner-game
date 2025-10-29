@@ -1,0 +1,105 @@
+openapi: 3.0.3
+info:
+  title: Enterprise Social Media Analytics API
+  version: 1.0.0
+servers:
+  - url: /api/v1
+paths:
+  /auth/register:
+    post:
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, name, password]
+              properties:
+                email: { type: string, format: email }
+                name: { type: string }
+                password: { type: string, format: password }
+      responses:
+        '201': { description: Created }
+  /auth/login:
+    post:
+      summary: Login and receive tokens
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email: { type: string, format: email }
+                password: { type: string, format: password }
+                twoFactorToken: { type: string }
+      responses:
+        '200': { description: OK }
+  /users:
+    get:
+      summary: List users
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create user
+      responses:
+        '201': { description: Created }
+  /users/{id}:
+    get:
+      summary: Get user by id
+      parameters:
+        - in: path
+          name: id
+          schema: { type: string }
+          required: true
+      responses:
+        '200': { description: OK }
+    put:
+      summary: Update user
+      parameters:
+        - in: path
+          name: id
+          schema: { type: string }
+          required: true
+      responses:
+        '200': { description: OK }
+    delete:
+      summary: Delete user
+      parameters:
+        - in: path
+          name: id
+          schema: { type: string }
+          required: true
+      responses:
+        '204': { description: No Content }
+  /posts:
+    get: { summary: List posts, responses: { '200': { description: OK } } }
+    post: { summary: Create post, responses: { '201': { description: Created } } }
+  /comments:
+    get: { summary: List comments, responses: { '200': { description: OK } } }
+    post: { summary: Create comment, responses: { '201': { description: Created } } }
+  /analytics/events:
+    get: { summary: List analytics events, responses: { '200': { description: OK } } }
+    post: { summary: Create analytics event, responses: { '201': { description: Created } } }
+  /analytics/summary:
+    get: { summary: Aggregated summary, responses: { '200': { description: OK } } }
+  /reports:
+    get: { summary: List reports, responses: { '200': { description: OK } } }
+    post: { summary: Create report, responses: { '201': { description: Created } } }
+  /notifications:
+    get: { summary: List notifications, responses: { '200': { description: OK } } }
+    post: { summary: Create notification, responses: { '201': { description: Created } } }
+  /teams:
+    get: { summary: List teams, responses: { '200': { description: OK } } }
+    post: { summary: Create team, responses: { '201': { description: Created } } }
+  /permissions:
+    get: { summary: List permissions, responses: { '200': { description: OK } } }
+    post: { summary: Create permission, responses: { '201': { description: Created } } }
+  /billing/plans:
+    get: { summary: List billing plans, responses: { '200': { description: OK } } }
+    post: { summary: Create billing plan, responses: { '201': { description: Created } } }
+  /webhooks/endpoints:
+    get: { summary: List webhook endpoints, responses: { '200': { description: OK } } }
+    post: { summary: Create webhook endpoint, responses: { '201': { description: Created } } }

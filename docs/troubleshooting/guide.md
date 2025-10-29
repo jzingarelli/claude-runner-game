@@ -1,0 +1,23 @@
+# Troubleshooting Guide
+
+- API returns 401
+  - Ensure Authorization header includes a Bearer token
+  - Check token expiry and refresh flow
+- Mongo connection fails
+  - Verify `MONGO_URI`, network, and credentials
+- Redis errors
+  - Confirm Redis is reachable and not password-protected (or set REDIS_PASSWORD)
+- Email not sending
+  - Check SMTP settings; use Mailhog in dev
+- S3 uploads fail
+  - Verify AWS credentials and bucket policy; ensure region matches
+- Stripe errors
+  - Ensure API keys are correct; test mode vs live mode
+- WebSocket not connecting
+  - Check cross-origin settings and proxy configuration
+- Docker compose fails to build
+  - Clear caches, rebuild with `--no-cache`
+- CI fails on tests
+  - Ensure Jest configs and environment variables are set in CI
+- Performance regressions
+  - Check Redis cache hit ratio and Mongo slow queries

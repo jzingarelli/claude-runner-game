@@ -1,25 +1,41 @@
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# IDE files
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
-
-# Logs
+# Node
+node_modules/
+dist/
+build/
 *.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-store/
 
-# Dependencies
-node_modules/
+# Env
+.env
+.env.*
+
+# Editor/OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Jest
+jest-cache/
+jest-tmp/
+
+# Logs
+logs/
+
+# Next/Vite/React build
+.cache/
+.vercel/
+
+# Docker
+**/.docker/
 
 # Misc
-*.tmp
-*.temp
+*.local
