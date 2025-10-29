@@ -1,0 +1,11 @@
+{
+  "name": "enterprise-social-media-analytics",
+  "private": true,
+  "workspaces": ["backend", "frontend"],
+  "scripts": {
+    "dev": "echo Run apps individually",
+    "build": "npm run -w backend build && npm run -w frontend build",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  }
+}
